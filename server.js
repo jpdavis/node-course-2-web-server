@@ -2,6 +2,8 @@ const 	express 	= require("express"),
 		fs			= require("fs"),
 		hbs			= require("hbs");
 
+const port = process.env.PORT || 3000
+
 var app = express();
 hbs.registerPartials(__dirname + "/views/partials");
 app.set("view engine", "hbs");
@@ -73,6 +75,6 @@ app.get("/bad", (req, res) => {
 //=================================
 //START SERVER LISTENING
 //=================================
-app.listen(process.env.PORT || 3000, process.env.IP, () => {
-	console.log("Server is listening on port 3000");
+app.listen(port, process.env.IP, () => {
+	console.log(`Server is listening on port ${port}`);
 });
